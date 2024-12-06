@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 if (number < 16) {
                     tiles[i][j] = number++
                 } else {
-                    tiles[i][j] = 0 // Пустая плитка
+                    tiles[i][j] = 0
                 }
             }
         }
@@ -55,15 +55,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun moveTile(row: Int, col: Int) {
-        // Проверяем, что индексы находятся в пределах массива
         if (row in 0..3 && col in 0..3) {
-            // Проверяем, что плитка находится рядом с пустой плиткой
             if (isAdjacent(row, col)) {
-                // Меняем местами плитку и пустую плитку
                 tiles[emptyTileRow][emptyTileCol] = tiles[row][col]
                 tiles[row][col] = 0
 
-                // Обновляем координаты пустой плитки
                 emptyTileRow = row
                 emptyTileCol = col
             }
